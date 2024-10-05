@@ -1,7 +1,7 @@
 import { ensureDir } from "jsr:@std/fs";
 import { join } from "jsr:@std/path";
 import { exists } from "jsr:@std/fs/exists";
-import { Confirm } from "@cliffy/prompt";
+import { Confirm } from "https://deno.land/x/cliffy@v0.25.7/prompt/mod.ts";
 import { downloadStub } from "../download.ts";
 
 async function readGeneratorsConfig() {
