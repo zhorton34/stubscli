@@ -1,6 +1,6 @@
 import { Command } from "@cliffy/command";
 import { makeStub } from "./make/make_stub.ts";
-import { join } from "@std/path";
+import { join } from "jsr:@std/path";
 
 async function readGeneratorsConfig() {
   try {
@@ -35,12 +35,9 @@ generators.forEach((generator: any) => {
   stubscli.command(generator.name, generator.info)
     .arguments("<name:string> [output:string]")
     .action(async (_, name, output) => {
-      await makeStub([generator.type, name, output || '.']);
+      await makeStub([generator.type, name, output || "."]);
     });
 });
 
 // Parse command line arguments
-if (import.meta.main) {
-  await stubscli.parse(Deno.args);
-}
-
+await stubscli.parse(Deno.args);

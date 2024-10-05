@@ -1,0 +1,19 @@
+{
+  "generators": [
+    {
+      "type": "scraper",
+      "name": "make:scraper",
+      "path": ["scrapers"],
+      "info": "Generate a new scraper",
+      "stub": "https://api.github.com/repos/zhorton34/stubs/contents/scrapers/minimal_crawlee.stub",
+      "isFolder": true
+    },
+    {
+      "type": "config",
+      "name": "make:config",
+      "path": ["config"],
+      "info": "Generate a new config file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/config.stub.ts"
+    }
+  ]
+}

@@ -2,65 +2,6 @@
   "name": "@findhow/stubscli",
   "version": "0.0.1",
   "description": "@findhow/stubscli intends to enhance the dev experience",
-  "generators": [
-    {
-      "type": "scraper",
-      "name": "make:scraper",
-      "path": ["scrapers"],
-      "info": "Generate a new scraper",
-      "stub": "https://api.github.com/repos/zhorton34/stubs/contents/scrapers/minimal_crawlee.stub",
-      "isFolder": true
-    },
-    {
-      "type": "config",
-      "name": "make:config",
-      "path": ["config"],
-      "info": "Generate a new config file",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/config.stub.ts"
-    },
-    {
-      "type": "logger",
-      "name": "make:logger",
-      "path": ["support"],
-      "info": "Generate a new logger",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/logger.stub.ts"
-    },
-    {
-      "type": "schema",
-      "name": "make:schema",
-      "path": ["schemas"],
-      "info": "Generate a new schema",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/schema.stub.ts"
-    },
-    {
-      "type": "interface",
-      "name": "make:interface",
-      "path": ["interfaces"],
-      "info": "Generate a new interface",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/interface.stub.ts"
-    },
-    {
-      "type": "enum",
-      "name": "make:enum",
-      "path": ["enums"],
-      "info": "Generate a new enum",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/enum.stub.ts"
-    },
-    {
-      "type": "Command",
-      "name": "make:command",
-      "path": ["commands"],
-      "info": "Generate a new command",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/command.stub.ts"
-    },
-    {
-      "type": "Controller",
-      "name": "make:controller",
-      "path": ["controllers"],
-      "info": "Generate a new controller",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/controller.stub.ts"
-    }
-  ],
   "tasks": {
     "start": "deno run --allow-read --allow-write --allow-net main.ts",
     "stubscli": "deno run --allow-read --allow-write --allow-net main.ts"

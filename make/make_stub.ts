@@ -4,9 +4,21 @@ import { exists } from "jsr:@std/fs/exists";
 import { Confirm } from "@cliffy/prompt";
 import { downloadStub } from "../download.ts";
 
+async function readGeneratorsConfig() {
+  try {
+    const cwd = Deno.cwd();
+    const configPath = join(cwd, ".stubscli.json");
+    const content = await Deno.readTextFile(configPath);
+    return JSON.parse(content).generators;
+  } catch (error) {
+    console.error("Error reading .stubscli.json:", error);
+    return [];
+  }
+}
+
 export async function makeStub(args: string[]) {
   const [type, name, output = '.'] = args;
-  const { generators } = JSON.parse(await Deno.readTextFile("./deno.json"));
+  const generators = await readGeneratorsConfig();
   const generator = generators.find((g: any) => g.type === type);
 
   if (!generator) {
