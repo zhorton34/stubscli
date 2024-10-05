@@ -11,7 +11,14 @@ const { name, version, description, generators } = JSON.parse(Deno.readTextFileS
   name: string;
   version: string;
   description: string;
-  generators: GenerateCommand[];
+  generators: Array<{
+    type: string;
+    name: string;
+    path: string[];
+    info: string;
+    stub: string;
+    isFolder?: boolean;
+  }>;
 };
 
 const stubscli = new Command()
@@ -19,26 +26,26 @@ const stubscli = new Command()
   .version(version)
   .description(description);
 
+// Add a help command
+stubscli.command("help", "Show available commands")
+  .action(() => {
+    console.log("Available commands:");
+    generators.forEach(gen => {
+      console.log(`  ${gen.name.padEnd(20)} ${gen.info}`);
+    });
+  });
+
+// Add generator commands
 generators.forEach(generator => {
-  const cmd = BaseGenerateCommand.make(generator)
-  stubscli.command(cmd.getName(), cmd);
+  stubscli.command(generator.name, generator.info)
+    .arguments("<name:string> [output:string]")
+    .action(async (_, name, output) => {
+      await makeStub([generator.type, name, output || '.']);
+    });
 });
 
-const command = Deno.args[0];
-const args = Deno.args.slice(1);
-
-switch (command) {
-  case "make:stub":
-    await makeStub(args);
-    break;
-  case "make:command":
-    await stubscli.parse(args);
-    break;
-  case "make:controller":
-    await stubscli.parse(args);
-    break;
-  default:
-    console.log("Unknown command");
-    Deno.exit(1);
+// Parse command line arguments
+if (import.meta.main) {
+  await stubscli.parse(Deno.args);
 }
 

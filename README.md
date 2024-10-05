@@ -1,8 +1,10 @@
 # @findhow/stubscli
 
-Welcome to **@findhow/stubscli**! This command-line interface (CLI) tool is
-designed to enhance your development experience by providing a streamlined way
-to generate various code stubs for your projects.
+> See [@findhow/stubs](https://github.com/zhorton34/stubs)
+
+> **@findhow/stubscli**! This command-line interface (CLI) tool is designed to
+> enhance your development experience by providing a streamlined way to generate
+> various code stubs for your projects.
 
 ## Features
 

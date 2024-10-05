@@ -14,56 +14,56 @@
     {
       "type": "config",
       "name": "make:config",
-      "path": ["app", "Config"],
-      "info": "Generate a new config",
+      "path": ["config"],
+      "info": "Generate a new config file",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/config.stub.ts"
     },
     {
       "type": "logger",
       "name": "make:logger",
-      "path": ["app", "Logger"],
+      "path": ["support"],
       "info": "Generate a new logger",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/logger.stub.ts"
     },
     {
       "type": "schema",
       "name": "make:schema",
-      "path": ["app", "Schemas"],
+      "path": ["schemas"],
       "info": "Generate a new schema",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/schema.stub.ts"
     },
     {
       "type": "interface",
       "name": "make:interface",
-      "path": ["app", "Interfaces"],
+      "path": ["interfaces"],
       "info": "Generate a new interface",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/interface.stub.ts"
     },
     {
       "type": "enum",
       "name": "make:enum",
-      "path": ["app", "Enums"],
+      "path": ["enums"],
       "info": "Generate a new enum",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/enum.stub.ts"
     },
     {
       "type": "Command",
       "name": "make:command",
-      "path": ["app", "Console", "Commands"],
+      "path": ["commands"],
       "info": "Generate a new command",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/command.stub.ts"
     },
     {
       "type": "Controller",
       "name": "make:controller",
-      "path": ["app", "Http", "Controllers"],
+      "path": ["controllers"],
       "info": "Generate a new controller",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/controller.stub.ts"
     }
   ],
   "tasks": {
-    "start": "deno run --allow-read --allow-write main.ts",
-    "stubscli": "deno run --allow-read --allow-write main.ts"
+    "start": "deno run --allow-read --allow-write --allow-net main.ts",
+    "stubscli": "deno run --allow-read --allow-write --allow-net main.ts"
   },
   "exports": {
     "./stubscli": "./main.ts"
