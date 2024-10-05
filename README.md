@@ -2,8 +2,14 @@
 
 > See [@findhow/stubs](https://github.com/zhorton34/stubs)
 
-```ts
-deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts --help
+## Quick start
+
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper Example
+```
+
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper Example --help
 
   Usage:   stubscli
   Version: 0.0.1   
@@ -31,24 +37,24 @@ deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stu
     make:test        <name> [output]  - Generate a new test file
 ```
 
-```ts
-deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:scraper Example
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper Example make:scraper Example
 ```
 
-```ts
-deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:logger LoggerService
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:logger LoggerService
 ```
 
-```ts
-deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:test ExampleTest ./example_test/
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:interface ExampleInterface app/interfaces
 ```
 
 ...etc
 
 ## Download Stub map and create your own repo with stubs
 
-```ts
-deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts download:stubmap && cat ./.stubscli.json
+```bash
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper Example download:stubmap && cat ./.stubscli.json
 ```
 
 ### That will cat out the following from `./.stubscli.json`
