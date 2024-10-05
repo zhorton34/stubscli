@@ -1,0 +1,17 @@
+{
+  "name": "@findhow/stubs/scrapers/minimal_crawlee",
+  "tasks": {
+    "dev:watch": "deno run --watch main.ts",
+    "scrape": "deno run --allow-net --allow-write --allow-sys --allow-run --allow-env --allow-read mod.ts",
+    "install:playwright": "npx playwright install",
+    "install:playwright:deps": "npx playwright install-deps",
+    "install:playwright:deps:mac": "npx playwright install-deps --with-deps=mac",
+    "install:playwright:deps:linux": "npx playwright install-deps --with-deps=linux",
+    "install:playwright:deps:win": "npx playwright install-deps --with-deps=win",
+  },
+  "nodeModulesDir": "auto",
+  "exports": "./mod.ts",
+  "imports": {
+    "npm:": "https://jspm.dev/"
+  }
+}

@@ -1,108 +1,72 @@
 {
   "name": "@findhow/stubscli",
   "version": "0.0.1",
-  "description": "Pioneer an enjoyable dev experience",
+  "description": "@findhow/stubscli intends to enhance the dev experience",
   "generators": [
     {
       "type": "scraper",
       "name": "make:scraper",
-      "path": [
-        "scrapers"
-      ],
+      "path": ["scrapers"],
       "info": "Generate a new scraper",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/scraper.stub.ts"
-    }
+      "stub": "https://api.github.com/repos/zhorton34/stubs/contents/scrapers/minimal_crawlee.stub",
+      "isFolder": true
+    },
     {
       "type": "config",
       "name": "make:config",
-      "path": [
-        "app",
-        "Config"
-      ],
+      "path": ["app", "Config"],
       "info": "Generate a new config",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/config.stub.ts"
     },
     {
       "type": "logger",
       "name": "make:logger",
-      "path": [
-        "app",
-        "Logger"
-      ],
+      "path": ["app", "Logger"],
       "info": "Generate a new logger",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/logger.stub.ts"
     },
     {
       "type": "schema",
       "name": "make:schema",
-      "path": [
-        "app",
-        "Schemas"
-      ],
+      "path": ["app", "Schemas"],
       "info": "Generate a new schema",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/schema.stub.ts"
     },
     {
       "type": "interface",
       "name": "make:interface",
-      "path": [
-        "app",
-        "Interfaces"
-      ],
+      "path": ["app", "Interfaces"],
       "info": "Generate a new interface",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/interface.stub.ts"
     },
     {
       "type": "enum",
       "name": "make:enum",
-      "path": [
-        "app",
-        "Enums"
-      ],
+      "path": ["app", "Enums"],
       "info": "Generate a new enum",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/enum.stub.ts"
     },
     {
       "type": "Command",
       "name": "make:command",
-      "path": [
-        "app",
-        "Console",
-        "Commands"
-      ],
+      "path": ["app", "Console", "Commands"],
       "info": "Generate a new command",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/command.stub.ts"
     },
     {
       "type": "Controller",
       "name": "make:controller",
-      "path": [
-        "app",
-        "Http",
-        "Controllers"
-      ],
+      "path": ["app", "Http", "Controllers"],
       "info": "Generate a new controller",
       "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/controller.stub.ts"
-    },
-    {
-      "type": "Scraper",
-      "name": "make:scraper",
-      "path": [
-        "app",
-        "Http",
-        "Scrapers"
-      ],
-      "info": "Generate a new scraper",
-      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/scraper.stub.ts"
     }
   ],
   "tasks": {
-    "pioneer": "deno run --allow-all ./main.ts",
-    "pioneer:test": "deno test --allow-all ./main.ts",
-    "pioneer:compile": "deno compile --target=node --output=./bin/pioneer ./main.ts"
+    "start": "deno run --allow-read --allow-write main.ts",
+    "stubscli": "deno run --allow-read --allow-write main.ts"
   },
   "exports": {
-    "./pioneer": "./main.ts"
+    "./stubscli": "./main.ts"
   },
   "imports": {
     "@c4spar/mock-command": "jsr:@c4spar/mock-command@^1.0.1",

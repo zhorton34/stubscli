@@ -1,7 +1,11 @@
 import { Command } from "@cliffy/command";
-import { dotenv } from "jsr:@std/dotenv";
 
-import { GenerateCommand, BaseGenerateCommand } from "./make/make_command.ts";
+import { 
+  type GenerateCommand, 
+  BaseGenerateCommand 
+} from "./make/make_command.ts";
+
+import { makeStub } from "./make/make_stub.ts";
 
 const { name, version, description, generators } = JSON.parse(Deno.readTextFileSync("./deno.json")) as {
   name: string;
@@ -10,17 +14,31 @@ const { name, version, description, generators } = JSON.parse(Deno.readTextFileS
   generators: GenerateCommand[];
 };
 
-const pioneer = new Command()
+const stubscli = new Command()
   .name(name)
   .version(version)
   .description(description);
 
 generators.forEach(generator => {
-  const command = BaseGenerateCommand.make(generator);
-  pioneer.command(command.getName(), command);
+  const cmd = BaseGenerateCommand.make(generator)
+  stubscli.command(cmd.getName(), cmd);
 });
 
-if (import.meta.main) {
-  await pioneer.parse(Deno.args);
+const command = Deno.args[0];
+const args = Deno.args.slice(1);
+
+switch (command) {
+  case "make:stub":
+    await makeStub(args);
+    break;
+  case "make:command":
+    await stubscli.parse(args);
+    break;
+  case "make:controller":
+    await stubscli.parse(args);
+    break;
+  default:
+    console.log("Unknown command");
+    Deno.exit(1);
 }
 
