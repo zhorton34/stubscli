@@ -1,4 +1,4 @@
-import { Command } from "@cliffy/command";
+import { Command } from "https://deno.land/x/cliffy@v0.25.7/command/mod.ts";
 import { makeStub } from "./make/make_stub.ts";
 import { join } from "jsr:@std/path";
 
