@@ -3,7 +3,7 @@
 > See [@findhow/stubs](https://github.com/zhorton34/stubs)
 
 ```ts
-(base)  zhorton@MacBookPro  ~/findhow/stubscli   main ±  deno run --allow-read --allow-write --allow-net ./stubscli.ts --help
+deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts --help
 
   Usage:   stubscli
   Version: 0.0.1   
@@ -31,21 +31,101 @@
     make:test        <name> [output]  - Generate a new test file
 ```
 
-> **@findhow/stubscli**! This command-line interface (CLI) tool is designed to
-> enhance your development experience by providing a streamlined way to generate
-> various code stubs for your projects.
+```ts
+deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:scraper Example
+```
 
-## Features
+```ts
+deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:logger LoggerService
+```
 
-- **Easy Stub Generation**: Quickly create boilerplate code for different types
-  of components such as scrapers, configurations, loggers, schemas, interfaces,
-  enums, commands, and controllers.
-- **GitHub Integration**: Seamlessly download stubs directly from a GitHub
-  repository.
-- **Customizable**: Modify the generated stubs to fit your specific needs.
+```ts
+deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts make:test ExampleTest ./example_test/
+```
 
-## Installation
+...etc
 
-To get started with **@findhow/stubscli**, you need to have
-[Deno](https://deno.land/) installed. Once you have Deno set up, you can clone
-this repository and run the CLI commands.
+## Download Stub map and create your own repo with stubs
+
+```ts
+deno run --allow-read --allow-write --allow-net https://github.com/zhorton34/stubscli/stubscli.ts download:stubmap && cat ./.stubscli.json
+```
+
+### That will cat out the following from `./.stubscli.json`
+
+> _Updating this .stubscli.json file with your own github repo will allow you to
+> generate your own personal stubs_
+
+<small>By default it uses some stubs I created at
+[Stubs](https://github.com/zhorton34/stubs)</small>
+
+```json
+{
+  "generators": [
+    {
+      "type": "scraper",
+      "name": "make:scraper",
+      "path": ["scrapers"],
+      "info": "Generate a new scraper",
+      "stub": "https://api.github.com/repos/zhorton34/stubs/contents/scrapers/minimal_crawlee.stub",
+      "isFolder": true
+    },
+    {
+      "type": "config",
+      "name": "make:config",
+      "path": ["config"],
+      "info": "Generate a new config file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/config.stub.ts"
+    },
+    {
+      "type": "logger",
+      "name": "make:logger",
+      "path": ["logger"],
+      "info": "Generate a new logger file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/logger.stub.ts"
+    },
+    {
+      "type": "schema",
+      "name": "make:schema",
+      "path": ["schemas"],
+      "info": "Generate a new schema file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/schema.stub.ts"
+    },
+    {
+      "type": "interface",
+      "name": "make:interface",
+      "path": ["interfaces"],
+      "info": "Generate a new interface file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/interface.stub.ts"
+    },
+    {
+      "type": "enum",
+      "name": "make:enum",
+      "path": ["enums"],
+      "info": "Generate a new enum file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/enum.stub.ts"
+    },
+    {
+      "type": "command",
+      "name": "make:command",
+      "path": ["commands"],
+      "info": "Generate a new command file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/command.stub.ts"
+    },
+    {
+      "type": "controller",
+      "name": "make:controller",
+      "path": ["controllers"],
+      "info": "Generate a new controller file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/controller.stub.ts"
+    },
+    {
+      "type": "test",
+      "name": "make:test",
+      "path": ["tests"],
+      "info": "Generate a new test file",
+      "stub": "https://raw.githubusercontent.com/zhorton34/stubs/main/test.stub.ts"
+    }
+  ]
+}
+```
