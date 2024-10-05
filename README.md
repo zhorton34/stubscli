@@ -5,7 +5,17 @@
 ## Quick start
 
 ```bash
-deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper Example
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/zhorton34/stubscli/main/stubscli.ts make:scraper example
+
+----------------------------------------
+Stub: make:scraper
+----------------------------------------
+Downloaded: scrapers/example/.gitignore
+Downloaded: scrapers/example/README.md
+Downloaded: scrapers/example/deno.json
+Downloaded: scrapers/example/mod.ts
+Downloaded folder: scrapers/example
+scraper 'example' has been successfully created at 'scrapers/example'
 ```
 
 ```bash
